@@ -1,0 +1,32 @@
+DROP TABLE IF EXISTS users;
+
+CREATE TABLE users (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	email TEXT NOT NULL,
+	username TEXT NOT NULL,
+	first_name TEXT,
+	last_name TEXT,
+	hashed_password TEXT,
+	is_active INTEGER
+);
+
+DROP TABLE IF EXISTS pluviometer;
+
+CREATE TABLE pluviometer (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	user_id INTEGER NOT NULL,
+	latitude NUMERIC,
+	longitude NUMERIC,
+	is_active INTEGER
+);
+
+DROP TABLE IF EXISTS rainfall;
+
+CREATE TABLE rainfall (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	pluviometer_id INTEGER NOT NULL,
+	mm INTEGER,
+	is_active INTEGER
+);
+
+-- coordonnees du jardin : 1.9180952757596967,47.87836250174585
